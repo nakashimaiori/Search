@@ -21,7 +21,7 @@
 <% end %>
 </table>
 
-
+<div class="newbook">
 <h2>New book</h2>
 
   <% if @book.errors.any? %>
@@ -35,7 +35,7 @@
   </div>
 <% end %>
 
-<%= form_for(@book) do |f| %>
+<%= form_for(@book, url: books_path) do |f| %>
   <h5>Title</h5>
   <%= f.text_field :title %>
 
@@ -44,4 +44,5 @@
  <br>
   <%= f.submit 'Create Book' %>
 <% end %>
+</div>
 <%= paginate @books %>
