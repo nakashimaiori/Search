@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_user!, except: [:top, :about]
+
+
+
+
+
+
   def show
-    @book =Book.new
+    @book = Book.new
   	@user = User.find(params[:id])
   	@books = @user.books.page(params[:page]).reverse_order
   end
@@ -13,12 +19,19 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+        redirect_to user_path(@user.id)
+    else
+      render "edit"
+    end
   end
 
   def index
   	@users = User.all
+    @user = current_user
+    @book = Book.new
+
+
   end
 # email追加してみた
   private
