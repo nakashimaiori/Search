@@ -20,8 +20,8 @@
   <%= f.submit '  Update Book  ',class: "col-xs-12 btn btn-primary" %>
 <% end %>
 
-<%= link_to "show",book_path(@book.id) %> |
-<%= link_to "back",books_path %>
+<%= link_to "Show", @book, class: "book_#{@book.id}" %> |
+<%= link_to "Back",books_path %>
 
 
 </div>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'books#index'
-  get 'top' => 'homes#top'
+  root 'homes#top'
   get 'home/about' => 'homes#about'
   resources :books, only: [:create, :index, :show, :edit, :destroy]
   patch 'books/:id' => 'books#update', as: 'update_book'
