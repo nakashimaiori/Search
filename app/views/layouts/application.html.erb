@@ -50,6 +50,11 @@
     <% end %>
   </ul>
     </nav>
+  <% if user_signed_in? %>
+  <ul class="navbar-right form">
+    <%= render 'searchs/search_form' %>
+  </ul>
+  <% end %>
 
     <%= yield %>
   </body>
